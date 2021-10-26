@@ -16,7 +16,7 @@ class Car extends Vehicule
     ];
 
 
-
+    private bool $HasParkBrake = true;
 
     private int $energyLevel;
 
@@ -30,6 +30,31 @@ class Car extends Vehicule
         $this->setEnergy($energy);
 
     }
+
+    public function forward(): string
+    {
+        if ($this->HasParkBrake) {
+            throw NEW Exception( 'tu ne peux pas avancer, deverouilles le frein à main');
+        } $this->currentSpeed = 15;
+        return "Go !";
+    }
+
+    /**
+     * @return bool
+     */
+    public function isHasParkBrake(): bool
+    {
+        return $this->HasParkBrake;
+    }
+
+    /**
+     * @param bool $HasParkBrake
+     */
+    public function setHasParkBrake(bool $HasParkBrake): void
+    {
+        $this->HasParkBrake = $HasParkBrake;
+    }
+
 
 
     public function getEnergy(): string
@@ -72,5 +97,6 @@ class Car extends Vehicule
         $this->energyLevel = $energyLevel;
 
     }
+
 
 }

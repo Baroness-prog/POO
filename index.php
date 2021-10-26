@@ -60,8 +60,18 @@ $residential->addVehicule($Bicycle);
 $residential->addVehicule($Car);
 
 
-var_dump($pedestrian);
-var_dump($residential);die();
+try {
+
+    $Car->forward() . "\n";
+} catch(Exception $e){
+
+    echo "Exception received  : ". $e->getMessage() . "n";
+    $Car->setHasParkBrake(false);
+} finally {
+
+    echo " : Ma voiture roule comme un donut";
+
+}
 
 
 
